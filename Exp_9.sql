@@ -137,17 +137,6 @@ UPDATE Products
 SET Stock=Stock-2
 WHERE ProductID=1;
 
-SELECT ProductName,Stock
-FROM Products
-WHERE ProductID=1;
-
--- OUTPUT:
-+-------------+-------+
-| ProductName | Stock |
-+-------------+-------+
-| Rice        |    18 |
-+-------------+-------+
-1 row in set
 
 
 -- 9. UPDATE SALE STATUS TO COMPLETED
@@ -156,36 +145,11 @@ UPDATE Sales
 SET Status='Completed'
 WHERE SaleID=1;
 
-SELECT SaleID,Status
-FROM Sales
-WHERE SaleID=1;
-
--- OUTPUT:
-+--------+-----------+
-| SaleID | Status    |
-+--------+-----------+
-|      1 | Completed |
-+--------+-----------+
-1 row in set
-
-
 -- 10. INCREASE PRODUCT PRICE BY 10%
 
 UPDATE Products
 SET Price=Price*1.10
 WHERE ProductID=1;
-
-SELECT ProductName,Price
-FROM Products
-WHERE ProductID=1;
-
--- OUTPUT:
-+-------------+-------+
-| ProductName | Price |
-+-------------+-------+
-| Rice        | 55.00 |
-+-------------+-------+
-1 row in set
 
 
 -- 11. DELETE A CUSTOMER RECORD
@@ -202,7 +166,6 @@ WHERE ProductID=5;
 
 DELETE FROM Products
 WHERE ProductID=5;
-
 
 
 
