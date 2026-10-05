@@ -3,6 +3,7 @@ CREATE DATABASE LibraryDB;
 USE LibraryDB;
 
 
+
 -- 2. CREATE TABLES
 CREATE TABLE Books (
     BookID INT PRIMARY KEY AUTO_INCREMENT,
@@ -31,7 +32,9 @@ CREATE TABLE IssueReturn (
 );
 
 
+
 -- 3. INSERT 5 RECORDS
+
 INSERT INTO Books (Title,Author,PubYear,Copies) VALUES
 ('DBMS','Korth',2020,5),
 ('Python','Guido',2021,4),
@@ -55,6 +58,7 @@ INSERT INTO IssueReturn
 (5,5,'2026-10-05',NULL,'Issued');
 
 
+
 -- 4. DISPLAY ALL BOOK RECORDS
 SELECT * FROM Books;
 
@@ -70,6 +74,7 @@ SELECT * FROM Books;
 +--------+--------+--------+---------+--------+
 5 rows in set
 
+    
 
 -- 5. DISPLAY ALL MEMBER RECORDS
 SELECT * FROM Members;
@@ -87,6 +92,7 @@ SELECT * FROM Members;
 5 rows in set
 
 
+    
 -- 6. DISPLAY BOOKS ISSUED WITH MEMBER DETAILS
 SELECT i.ID,b.Title,m.Name,i.IssueDate,i.Status
 FROM IssueReturn i
@@ -104,6 +110,8 @@ JOIN Members m ON i.MemberID=m.MemberID;
 |  5 | AI     | Ravi  | 2026-10-05 | Issued   |
 +----+--------+-------+------------+----------+
 5 rows in set
+
+
 
 
 -- 7. DISPLAY BOOK TITLE, MEMBER NAME AND ISSUE DATE
@@ -128,15 +136,6 @@ JOIN Members m ON i.MemberID=m.MemberID;
 -- 8. UPDATE AVAILABLE COPIES
 UPDATE Books SET Copies=Copies-1 WHERE BookID=1;
 
-SELECT Title,Copies FROM Books WHERE BookID=1;
-
--- OUTPUT:
-+-------+--------+
-| Title | Copies |
-+-------+--------+
-| DBMS  |      4 |
-+-------+--------+
-1 row in set
 
 
 -- 9. UPDATE RETURN STATUS AND DATE
@@ -205,10 +204,8 @@ RENAME TABLE IssueReturn TO Transactions;
 
 
 
-
 -- 16. TRUNCATE ALL RECORDS FROM TRANSACTIONS
 TRUNCATE TABLE Transactions;
-
 
 
 
@@ -218,12 +215,10 @@ MODIFY Title VARCHAR(50) NOT NULL;
 
 
 
-
 -- 18. ADD CHECK CONSTRAINT FOR PHONE
 ALTER TABLE Members
 ADD CONSTRAINT chk_phone
 CHECK(Phone REGEXP '^[0-9]{10}$');
-
 
 
 
@@ -310,7 +305,6 @@ WHERE t.Status='Issued';
 
 
 
-
 -- 25. DISPLAY IssuedBooksView
 SELECT * FROM IssuedBooksView;
 
@@ -331,7 +325,6 @@ BEGIN
 END //
 
 DELIMITER ;
-
 
 
 
